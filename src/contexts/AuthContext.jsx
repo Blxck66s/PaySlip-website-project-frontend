@@ -20,17 +20,23 @@ function AuthContextProvider({ children }) {
   }, []);
 
   const getuser = async () => {
-    const res = await axios.get("http://localhost:3001/auth/", {
+    const res = await axios.get("https://payslipnode.onrender.com/auth/", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
     setUser(res.data.user);
     return res.data.user;
   };
   const register = async (input) => {
-    const res = await axios.post("http://localhost:3001/auth/register", input);
+    const res = await axios.post(
+      "https://payslipnode.onrender.com/auth/register",
+      input
+    );
   };
   const login = async (input) => {
-    const res = await axios.post("http://localhost:3001/auth/login", input);
+    const res = await axios.post(
+      "https://payslipnode.onrender.com/auth/login",
+      input
+    );
     localStorage.setItem("token", res.data.token);
     return res;
   };
