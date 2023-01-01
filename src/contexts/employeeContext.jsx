@@ -5,7 +5,7 @@ export const EmployeeContext = createContext();
 
 function EmployeeContextProvider({ children }) {
   const getEmployee = async () => {
-    const res = await axios.get("http://localhost:3001/employee/", {
+    const res = await axios.get("https://payslipnode.onrender.com/employee/", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
 
@@ -13,24 +13,30 @@ function EmployeeContextProvider({ children }) {
   };
 
   const deleteEmployee = async (eid) => {
-    const res = await axios.delete(`http://localhost:3001/employee/${eid}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    });
+    const res = await axios.delete(
+      `https://payslipnode.onrender.com/employee/${eid}`,
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      }
+    );
 
     return res.data.employees;
   };
 
   const deleteSalary = async (eid) => {
-    const res = await axios.delete(`http://localhost:3001/salary/${eid}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    });
+    const res = await axios.delete(
+      `https://payslipnode.onrender.com/salary/${eid}`,
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      }
+    );
 
     return res.data.employees;
   };
 
   const getSpecificEmployeeSalaries = async (eid, year) => {
     const res = await axios.get(
-      `http://localhost:3001/salary/${eid}?year=${year || ""}`,
+      `https://payslipnode.onrender.com/salary/${eid}?year=${year || ""}`,
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       }
