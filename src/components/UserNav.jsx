@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function Nav() {
   return (
     <div className="flex items-center text-lg">
-      <NavLink
+      {/* <NavLink
         to="/home"
         className={` p-7 hover:text-blue-500 delay-150 ease-in-out transition hover:scale-125  hover:animate-pulse ${({
           isActive,
@@ -19,7 +19,7 @@ function Nav() {
         }) => (isActive ? "active" : "")}`}
       >
         ประวัติทั้งหมด
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 }

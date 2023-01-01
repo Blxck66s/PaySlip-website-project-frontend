@@ -41,7 +41,7 @@ function UserHome() {
 
   return (
     <div className="flex flex-col w-full items-center justify-center mt-10 ">
-      <div className="w-4/5 min-w-[650px] max-w-[1000px] h-fit  shadow-md border-l-2 border-blue-400">
+      <div className="w-full rounded-md md:w-4/5 max-w-[1000px] h-fit bg-white  shadow-md border-l-2 border-blue-400">
         {selectedEmployee
           ? selectedEmployee
               .filter((item) =>
@@ -89,16 +89,16 @@ function UserHome() {
                     </div>
 
                     <div
-                      className={`flex justify-evenly transition-all ease-out duration-300   ${
+                      className={`flex max-sm:flex-col justify-evenly transition-all ease-out duration-300   ${
                         selectedEmployee[index].status
                           ? "h-fit  p-2 "
                           : "h-0 opacity-0 invisible "
                       } `}
                     >
                       <div className=" text-center">
-                        เงินได้
-                        <div className="flex text-center text-sm">
-                          <div className="text-right">
+                        <div className="bg-slate-100">เงินได้</div>
+                        <div className="flex  text-center text-sm">
+                          <div className="w-1/2 text-right">
                             <div className=" ">เงินเดือน : </div>
                             <div className=" ">โอที : </div>
                             <div className=" ">คอมมิชชั่น : </div>
@@ -106,7 +106,7 @@ function UserHome() {
                             <div className=" ">โบนัส : </div>
                             <div className=" ">เงินได้อื่นๆ : </div>
                           </div>
-                          <div className="text-left pl-1">
+                          <div className="w-1/2 text-left pl-1">
                             <div>{item.Earnings.Salary.toLocaleString()}</div>
                             <div>{item.Earnings.OverTime.toLocaleString()}</div>
                             <div>
@@ -123,15 +123,15 @@ function UserHome() {
                         </div>
                       </div>
                       <div className=" text-center">
-                        รายการหัก
-                        <div className="flex text-center text-sm">
-                          <div className="text-right">
+                        <div className="bg-slate-100">รายการหัก</div>
+                        <div className="flex min-w-[200px] text-center text-sm">
+                          <div className="w-1/2 text-right">
                             <div className=" ">ประกันสังคม : </div>
                             <div className=" ">ภาษีเงินได้ : </div>
                             <div className=" ">ขาด/ลา/มาสาย : </div>
                             <div className=" ">รายการหักอื่นๆ : </div>
                           </div>
-                          <div className="text-left pl-1">
+                          <div className="w-1/2 text-left pl-1">
                             <div>
                               {item.Deductions.SocialSecurityFund.toLocaleString()}
                             </div>
@@ -148,9 +148,9 @@ function UserHome() {
                         </div>
                       </div>
                       <div className=" text-center">
-                        สะสมประจำปี
+                        <div className="bg-slate-100">สะสมประจำปี</div>
                         <div className="flex text-center text-sm">
-                          <div className="text-right">
+                          <div className="w-1/2 text-right">
                             <div className=" ">เงินได้สะสม : </div>
                             <div className=" ">ภาษีเงินได้สะสม : </div>
                             <div className=" ">เงินประกันสังคมสะสม :</div>
@@ -158,7 +158,7 @@ function UserHome() {
                             <div className=" ">รวมรายการหัก : </div>
                             <div className=" ">เงินได้สุทธิ : </div>
                           </div>
-                          <div className="text-left pl-1">
+                          <div className="w-1/2 text-left pl-1">
                             <div>
                               {item.Totals.YTDearnings.toLocaleString()}
                             </div>

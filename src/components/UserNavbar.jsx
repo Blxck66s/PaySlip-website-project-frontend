@@ -8,12 +8,12 @@ function UserNavbar() {
   const { logout } = useContext(AuthContext);
 
   return (
-    <div className="flex items-center justify-between text-md h-20  w-full top-0  shadow-md">
-      <img src={amiris} alt="logo" className=" pl-10 h-1/2" />
+    <div className="flex items-center justify-between text-md h-20  w-full top-0 ">
+      <img src={amiris} alt="logo" className=" md:pl-10 h-1/2" />
       <Nav />
       <button
         onClick={() => logout()}
-        className="pr-10 flex items-center p-7 hover:text-red-500 delay-150 ease-in-out transition hover:scale-125 hover:animate-pulse"
+        className="md:pr-10 flex items-center p-7 hover:text-red-500 text-white delay-150 ease-in-out transition hover:scale-125 hover:animate-pulse"
       >
         ออกจากระบบ
         <ArrowRightOnRectangleIcon className="h-5 w-5 " />

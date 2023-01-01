@@ -3,9 +3,11 @@ import Router from "./routers/Router";
 
 function App() {
   return (
-    <div className="App bg-white font-Kanit">
-      <Router />
-    </div>
+    <>
+      <div className=" App font-Kanit">
+        <Router />
+      </div>
+    </>
   );
 }
 

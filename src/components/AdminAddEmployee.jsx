@@ -137,15 +137,15 @@ function AdminAddEmployee({ fetch }) {
         </button>
       </div>
       <div
-        className={`flex flex-wrap justify-evenly transition-all ease-out duration-300 text-sm   ${
+        className={`flex  flex-wrap justify-evenly transition-all ease-out duration-300 text-sm   ${
           addingStatus
             ? "h-fit  p-2 gap-1 shadow-md "
             : "h-0 opacity-0 invisible "
         } `}
       >
-        <div>รหัสพนักงาน</div>
+        <div className="w-full text-center">รหัสพนักงาน</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="employeeCode"
           placeholder={placeHolder.employeeCode}
@@ -154,9 +154,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>ชื่อภาษาอังกฤษ</div>
+        <div className="w-full text-center">ชื่อภาษาอังกฤษ</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  w-  h-5"
           type="text"
           name="nameENG"
           placeholder={placeHolder.nameENG}
@@ -165,9 +165,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>ชื่อภาษาไทย</div>
+        <div className="w-full text-center">ชื่อภาษาไทย</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="nameTH"
           placeholder={placeHolder.nameTH}
@@ -176,9 +176,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>ตำแหน่ง</div>
+        <div className="w-full text-center">ตำแหน่ง</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="position"
           placeholder={placeHolder.position}
@@ -187,9 +187,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>แผนก</div>
+        <div className="w-full text-center">แผนก</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="department"
           placeholder={placeHolder.department}
@@ -198,9 +198,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>วันเริ่มงาน</div>
+        <div className="w-full text-center">วันเริ่มงาน</div>
         <input
-          className="text-sm border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="text-sm border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px] h-5"
           type="date"
           name="employmentDate"
           value={addInput.employmentDate}
@@ -208,9 +208,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>ชื่อธนาคาร และ เลขที่บัญชี </div>
+        <div className="w-full text-center">ชื่อธนาคาร และ เลขที่บัญชี </div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="bankAccount"
           placeholder={placeHolder.bankAccount}
@@ -219,9 +219,9 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>username</div>
+        <div className="w-full text-center">username</div>
         <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
+          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
           type="text"
           name="username"
           placeholder={placeHolder.username}
@@ -230,19 +230,21 @@ function AdminAddEmployee({ fetch }) {
             handleChangeAddInput(e);
           }}
         />
-        <div>password</div>
-        <input
-          className="border rounded-sm  border-slate-200 hover:border-blue-400 w-40 h-5"
-          type="text"
-          name="password"
-          placeholder={placeHolder.password}
-          value={addInput.password}
-          onChange={(e) => {
-            handleChangeAddInput(e);
-          }}
-        />
+        <div className="w-full text-center">password</div>
+        <div className="w-full flex justify-center ">
+          <input
+            className=" border rounded-sm   border-slate-200 hover:border-blue-400 w-full max-w-[180px]  h-5"
+            type="text"
+            name="password"
+            placeholder={placeHolder.password}
+            value={addInput.password}
+            onChange={(e) => {
+              handleChangeAddInput(e);
+            }}
+          />
+        </div>
         <button
-          className={`flex justify-center items-center w-16 m-2 h-7 shadow-md  bg-blue-400 hover:bg-blue-500 text-white rounded-md  transition ease-in-out ${
+          className={`flex max-md:w-2/5 justify-center items-center w-16 m-2 h-7 shadow-md  bg-blue-400 hover:bg-blue-500 text-white rounded-md  transition ease-in-out ${
             success && "bg-green-400 hover:bg-green-400"
           }`}
           onClick={() => {

@@ -129,10 +129,10 @@ function AdminAddPayroll({ input, setSelectedEmployee, handleChangeInput }) {
                 </div>
               </div>
             </div>
-            <div className="basis-1/2 p-2 text-center">
+            <div className="basis-1/2 max-md:basis-full p-2 text-center">
               เงินได้
               <div className="flex justify-center text-center text-sm">
-                <div className="text-right p-2">
+                <div className="w-1/2 text-right p-2">
                   <div className=" ">เงินเดือน : </div>
                   <div className=" ">โอที : </div>
                   <div className=" ">คอมมิชชั่น : </div>
@@ -140,7 +140,7 @@ function AdminAddPayroll({ input, setSelectedEmployee, handleChangeInput }) {
                   <div className=" ">โบนัส : </div>
                   <div className=" ">เงินได้อื่นๆ : </div>
                 </div>
-                <div className="text-left p-2">
+                <div className="w-1/2 text-left p-2">
                   <div>
                     <input
                       className="border rounded-sm  border-slate-100 hover:border-blue-400 w-24 h-5"
@@ -216,16 +216,16 @@ function AdminAddPayroll({ input, setSelectedEmployee, handleChangeInput }) {
                 </div>
               </div>
             </div>
-            <div className="basis-1/2 p-2 text-center">
+            <div className="basis-1/2 max-md:basis-full p-2 text-center">
               รายการหัก
               <div className="flex justify-center  text-center text-sm">
-                <div className="text-right p-2">
+                <div className="w-1/2 text-right p-2">
                   <div className=" ">ประกันสังคม : </div>
                   <div className=" ">ภาษีเงินได้ : </div>
                   <div className=" ">ขาด/ลา/มาสาย : </div>
                   <div className=" ">รายการหักอื่นๆ : </div>
                 </div>
-                <div className="text-left p-2">
+                <div className="w-1/2 text-left p-2">
                   <div>
                     <input
                       className="border rounded-sm  border-slate-100 hover:border-blue-400 w-24 h-5"
@@ -276,10 +276,10 @@ function AdminAddPayroll({ input, setSelectedEmployee, handleChangeInput }) {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-end pr-12 pt-2">
+              <div className="flex justify-end max-md:justify-center max-md:pr-0 pr-12 pt-2">
                 <button
                   onClick={() => handleSave()}
-                  className={`flex justify-center items-center w-16 h-8 shadow-md  bg-blue-400 hover:bg-blue-500 text-white rounded-md  transition ease-in-out
+                  className={`flex justify-center items-center w-16 max-md:w-20 h-8 shadow-md  bg-blue-400 hover:bg-blue-500 text-white rounded-md  transition ease-in-out
                   ${success && "bg-green-400 hover:bg-green-400"}
                   `}
                 >
