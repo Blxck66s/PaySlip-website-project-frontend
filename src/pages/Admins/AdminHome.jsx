@@ -6,7 +6,6 @@ import {
   ArrowDownTrayIcon,
   TrashIcon,
   ChevronRightIcon,
-  BackspaceIcon,
 } from "@heroicons/react/24/outline";
 
 import AdminAddPayroll from "../../components/AdminAddPayroll";
@@ -103,8 +102,8 @@ function AdminHome() {
 
   return (
     <div className="flex flex-col w-full items-center justify-center mt-10 ">
-      <div className="flex w-4/5 h-fit ">
-        <div className="w-1/5 min-w-[200px] h-fit  shadow-md ">
+      <div className="flex w-4/5 h-fit justify-center">
+        <div className="w-1/5 min-w-[200px] max-w-[200px] h-fit  shadow-md ">
           {loading ? (
             <div></div>
           ) : (
@@ -198,7 +197,7 @@ function AdminHome() {
             </>
           )}
         </div>
-        <div className="w-4/5 min-w-[650px] h-fit  shadow-md border-l-2 border-blue-400">
+        <div className="w-4/5 min-w-[650px] max-w-[1000px] h-fit  shadow-md border-l-2 border-blue-400">
           <AdminAddPayroll
             input={input}
             handleChangeInput={handleChangeInput}
