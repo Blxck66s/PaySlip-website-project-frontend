@@ -59,7 +59,7 @@ function LoginPage() {
               <img src={amiris} alt="logo" />
             </span>
             <input
-              type="text"
+              type="username"
               placeholder={inputPL.username}
               value={input.username}
               onChange={(e) => setInput({ ...input, username: e.target.value })}
@@ -70,7 +70,7 @@ function LoginPage() {
               }
             />
             <input
-              type="text"
+              type="password"
               placeholder={inputPL.password}
               value={input.password}
               onChange={(e) => setInput({ ...input, password: e.target.value })}

@@ -12,7 +12,7 @@ function Router() {
   return (
     <Routes>
       {user ? (
-        user.username === "admin" ? (
+        user.admin ? (
           <Route path="/" element={<AdminLayout />}>
             <Route path="/" element={<AdminHome />} />
           </Route>

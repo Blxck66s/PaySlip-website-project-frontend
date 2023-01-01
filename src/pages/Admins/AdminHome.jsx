@@ -6,18 +6,26 @@ import {
   ArrowDownTrayIcon,
   TrashIcon,
   ChevronRightIcon,
+  BackspaceIcon,
 } from "@heroicons/react/24/outline";
+
 import AdminAddPayroll from "../../components/AdminAddPayroll";
 import AdminAddEmployee from "../../components/AdminAddEmployee";
+import AdminDeleteEmployee from "../../components/AdminDeleteEmployee";
 
 function AdminHome() {
-  const { getEmployee, getSpecificEmployeeSalaries } =
-    useContext(EmployeeContext);
+  const {
+    getEmployee,
+    getSpecificEmployeeSalaries,
+    deleteEmployee,
+    deleteSalary,
+  } = useContext(EmployeeContext);
   const [employees, setEmployees] = useState([]);
   const [years, setYears] = useState([]);
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedEmployee, setSelectedEmployee] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [deleteStatus, setDeleteStatus] = useState(false);
 
   const [input, setInput] = useState({
     PayrollPeriod: moment().format("yyyy-MM"),
@@ -34,6 +42,7 @@ function AdminHome() {
   useEffect(() => {
     fetch();
   }, [getEmployee]);
+  useEffect(() => {}, [selectedEmployee]);
 
   const handleClick = (index) => {
     setSelectedEmployee(
@@ -101,28 +110,65 @@ function AdminHome() {
           ) : (
             <>
               <AdminAddEmployee fetch={fetch} />
+              <AdminDeleteEmployee
+                fetch={fetch}
+                deleteStatus={deleteStatus}
+                setDeleteStatus={setDeleteStatus}
+              />
               {employees
                 .map((item, index) => {
                   return (
                     <div
-                      className={`${
-                        input.Employee === item._id &&
-                        "bg-blue-400 text-white  hover:bg-blue-400"
-                      } px-2 shadow-sm hover:bg-slate-50 `}
+                      className={` px-3  shadow-sm min-h-[40px]   relative ${
+                        input.Employee === item._id
+                          ? "bg-blue-400 text-white  hover:bg-blue-400"
+                          : "hover:bg-slate-200"
+                      }`}
                       key={index}
                     >
                       <button
-                        className="w-full text-left"
+                        className="w-full text-left align-middle pt-2"
                         name="Employee"
                         value={item._id}
                         onClick={(e) => handleClickEmployee(item, index, e)}
                       >
                         {item.nameENG}
                       </button>
+
+                      <button
+                        className={` absolute right-0 top-0 flex justify-center items-center w-14 h-full   bg-red-400 hover:bg-red-500  text-white shadow-sm text-sm 
+                          transition-all delay-100 ease-in-out
+                          ${
+                            deleteStatus
+                              ? " opacity-100  "
+                              : "opacity-0 w-0  invisible"
+                          }
+                          `}
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              `ยืนยันลบข้อมูลของพนักงานชื่อ ${
+                                item.nameENG ? item.nameENG : item.nameTH
+                              } ทั้งหมด ?`
+                            )
+                          ) {
+                            deleteEmployee(item._id);
+                            setEmployees(
+                              employees.filter(
+                                (filteritem) =>
+                                  filteritem._id !== item._id && filteritem
+                              )
+                            );
+                          }
+                        }}
+                      >
+                        delete
+                      </button>
+
                       <div
                         className={`flex flex-wrap justify-start transition-all ease-out duration-300 text-sm   ${
                           employees[index].status && years.length > 1
-                            ? "h-fit  p-2 gap-1 shadow-md "
+                            ? "h-fit  p-2 gap-1 "
                             : "h-0 opacity-0 invisible "
                         } `}
                       >
@@ -134,7 +180,7 @@ function AdminHome() {
                               <div key={index}>
                                 <button
                                   value={item}
-                                  className={`border border-slate-200 px-2 rounded-lg ${
+                                  className={`border border-slate-200 px-2 rounded-lg hover:bg-blue-500 ${
                                     selectedYear === item &&
                                     "bg-blue-500 border-none"
                                   }`}
@@ -204,7 +250,25 @@ function AdminHome() {
                             <ArrowDownTrayIcon className="w-7 text-green-400 transition-all ease-in-out hover:scale-150" />
                           </button>
 
-                          <button>
+                          <button
+                            onClick={() => {
+                              if (
+                                window.confirm(
+                                  `ยืนยันลบข้อมูลงวด ${moment(
+                                    item.PayrollPeriod
+                                  ).format("MM/YYYY")} ?`
+                                )
+                              ) {
+                                deleteSalary(item._id);
+                                setSelectedEmployee(
+                                  selectedEmployee.filter(
+                                    (filteritem) =>
+                                      filteritem._id !== item._id && filteritem
+                                  )
+                                );
+                              }
+                            }}
+                          >
                             <TrashIcon className="w-7 text-red-400 transition-all ease-in-out hover:scale-150" />
                           </button>
                         </div>

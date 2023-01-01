@@ -50,7 +50,7 @@ function AdminAddEmployee({ fetch }) {
     };
 
     for (const [key, value] of Object.entries(addInput)) {
-      if (key === "nameTH" && !/^[\sก-ฮ]+$/.test(value)) {
+      if (key === "nameTH" && !/^[\sก-๛]+$/.test(value)) {
         validationError[key] = "เฉพาะตัวอักษร ก-ฮ เท่านั้น";
       }
       if (key === "nameENG" && !/^[\sa-zA-Z]+$/.test(value)) {
@@ -58,7 +58,7 @@ function AdminAddEmployee({ fetch }) {
       }
       if (
         (key === "department" || key === "position") &&
-        !/^[\sa-zA-Zก-ฮ]+$/.test(value)
+        !/^[\sa-zA-Zก-๛]+$/.test(value)
       ) {
         validationError[key] = "เฉพาะตัวอักษร A-Z และ ก-ฮ เท่านั้น";
       }
