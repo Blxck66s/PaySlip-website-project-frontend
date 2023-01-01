@@ -53,7 +53,7 @@ function EmployeeContextProvider({ children }) {
     Deductions
   ) => {
     const res = await axios.post(
-      `http://localhost:3001/salary/`,
+      `https://payslipnode.onrender.com/salary/`,
       { PayrollPeriod, PaymentDate, Employee, Earnings, Deductions },
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
