@@ -27,7 +27,6 @@ function UserHome() {
       })
     );
   };
-  console.log(selectedEmployee);
   useEffect(() => {
     const fetch = async () => {
       await getSpecificEmployeeSalaries(user._id)

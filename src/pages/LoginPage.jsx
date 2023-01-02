@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import amiris from "../amiris.webp";
+import amiris from "../amiris.png";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 
 function LoginPage() {
@@ -54,9 +54,9 @@ function LoginPage() {
     <div className="">
       <div className="h-screen flex justify-center items-center">
         <form onSubmit={handleLogin}>
-          <div className="flex flex-col h-fit gap-5   rounded-md p-6 shadow-lg bg-white">
+          <div className="flex flex-col h-fit gap-5 rounded-md p-6 shadow-md bg-white bg-opacity-5 border border-b-0 border-r-0 border-white border-opacity-20 ">
             <span>
-              <img src={amiris} alt="logo" />
+              <img src={amiris} alt="logo" className="h-[110px]" />
             </span>
             <input
               type="username"
@@ -65,8 +65,9 @@ function LoginPage() {
               onChange={(e) => setInput({ ...input, username: e.target.value })}
               className={
                 inputPL.username !== "username"
-                  ? `border-2 border-red-400 placeholder:text-red-400 placeholder:px-2 rounded-md `
-                  : "border-2 border-slate-300 placeholder:px-2 rounded-md"
+                  ? `
+                  text-white placeholder:px-2 placeholder:text-red-400 border-red-400 bg-transparent border-b focus:outline-none`
+                  : "text-white placeholder:px-2 placeholder:text-gray-300 bg-transparent border-b focus:outline-none"
               }
             />
             <input
@@ -76,8 +77,9 @@ function LoginPage() {
               onChange={(e) => setInput({ ...input, password: e.target.value })}
               className={
                 inputPL.password !== "password"
-                  ? `border-2 border-red-400 placeholder:text-red-400 placeholder:px-2 rounded-md`
-                  : "border-2 border-slate-300 placeholder:px-2 rounded-md"
+                  ? `
+                text-white placeholder:px-2 placeholder:text-red-400 border-red-400 bg-transparent border-b focus:outline-none`
+                  : "text-white placeholder:px-2 placeholder:text-gray-300 bg-transparent border-b focus:outline-none"
               }
             />
             <div className="flex justify-center">

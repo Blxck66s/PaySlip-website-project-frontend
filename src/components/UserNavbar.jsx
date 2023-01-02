@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Nav from "./UserNav";
-import amiris from "../amiris.webp";
+import amiris from "../amiris.png";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -8,8 +8,8 @@ function UserNavbar() {
   const { logout } = useContext(AuthContext);
 
   return (
-    <div className="flex items-center justify-between text-md h-20  w-full top-0 ">
-      <img src={amiris} alt="logo" className=" md:pl-10 h-1/2" />
+    <div className="flex items-center justify-between text-md h-20 w-full top-0">
+      <img src={amiris} alt="logo" className=" md:pl-10 pl-5 h-full" />
       <Nav />
       <button
         onClick={() => logout()}
