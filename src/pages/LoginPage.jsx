@@ -54,7 +54,7 @@ function LoginPage() {
     <div className="">
       <div className="h-screen flex justify-center items-center">
         <form onSubmit={handleLogin}>
-          <div className="flex flex-col h-fit gap-5 rounded-md p-6 shadow-md bg-white bg-opacity-5 border border-b-0 border-r-0 border-white border-opacity-20 ">
+          <div className="flex flex-col h-fit gap-5 rounded-md p-6 shadow-md bg-white bg-opacity-5 border border-b-0 border-r-0 border-white border-opacity-20 backdrop-blur-sm ">
             <span>
               <img src={amiris} alt="logo" className="h-[110px]" />
             </span>
