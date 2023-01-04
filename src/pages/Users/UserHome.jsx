@@ -13,6 +13,7 @@ function UserHome() {
   const { user } = useContext(AuthContext);
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedEmployee, setSelectedEmployee] = useState([]);
+  const [years, setYears] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleClick = (index) => {
@@ -29,9 +30,17 @@ function UserHome() {
   };
   useEffect(() => {
     const fetch = async () => {
+      const newYear = [];
       await getSpecificEmployeeSalaries(user._id)
         .then((res) => {
-          setSelectedEmployee(res.map((item) => ({ ...item, status: false })));
+          setSelectedEmployee(
+            res.map((item) => {
+              !newYear.includes(moment(item.PayrollPeriod).format("YYYY")) &&
+                newYear.push(moment(item.PayrollPeriod).format("YYYY"));
+              return { ...item, status: false };
+            })
+          );
+          setYears([...newYear]);
         })
         .then(() => setLoading(false));
     };
@@ -40,6 +49,25 @@ function UserHome() {
 
   return (
     <div className="flex flex-col w-full items-center justify-center mt-10 ">
+      <div className="flex  w-full md:w-4/5 max-w-[1000px] justify-start gap-2 p-2">
+        {years.length > 1 &&
+          years
+            .sort()
+            .reverse()
+            .map((item, index) => (
+              <div key={index}>
+                <button
+                  value={item}
+                  className={`border bg-white border-slate-200 px-2 rounded-lg hover:bg-blue-500 ${
+                    selectedYear === item && "bg-blue-500 border-none"
+                  }`}
+                  onClick={() => setSelectedYear(item)}
+                >
+                  {item}
+                </button>
+              </div>
+            ))}
+      </div>
       <div className="w-full rounded-md md:w-4/5 max-w-[1000px] h-fit bg-white  shadow-md border-l-2 border-blue-400">
         {selectedEmployee
           ? selectedEmployee
