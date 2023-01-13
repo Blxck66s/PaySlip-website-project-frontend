@@ -36,8 +36,8 @@ const downloadPDF = (selectedEmployee, index) => {
     227,
     48
   );
-  doc.text(info.Employee.department, 227, 60.5);
-  doc.text(info.Employee.position, 227, 74.5);
+  doc.text(info.Employee.department, 227, 74.5);
+  doc.text(info.Employee.position, 227, 60.5);
   //Earnings
   doc.text(String(info.Earnings.Salary.toLocaleString()), 70, 108);
   doc.text(String(info.Earnings.OverTime.toLocaleString()), 70, 121);
